@@ -1,0 +1,204 @@
+:root {
+    --primary-color: #ff4b6e;
+    --secondary-color: #ff8fa3;
+    --bg-color: #fff0f3;
+    --text-color: #4a4a4a;
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Dynamic Background */
+.background-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: float 10s infinite ease-in-out;
+}
+
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: #ffc2d1;
+    top: -100px;
+    left: -100px;
+}
+
+.blob-2 {
+    width: 300px;
+    height: 300px;
+    background: #ffe5ec;
+    bottom: -50px;
+    right: -50px;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(30px, 50px);
+    }
+}
+
+/* Main Card */
+.container {
+    text-align: center;
+    z-index: 10;
+}
+
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    padding: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.image-container img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+}
+
+.question {
+    font-family: 'Pacifico', cursive;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.sub-text {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    align-items: center;
+    position: relative;
+    /* Important for absolute positioning of No button if needed */
+    min-height: 60px;
+    /* Reserve space */
+}
+
+.btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: 'Outfit', sans-serif;
+}
+
+.btn-yes {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 10px 20px rgba(255, 75, 110, 0.3);
+}
+
+.btn-yes:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(255, 75, 110, 0.4);
+}
+
+.btn-no {
+    background-color: #f0f0f0;
+    color: var(--text-color);
+    position: relative;
+    z-index: 50;
+}
+
+/* Success State */
+#success-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 240, 243, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+#success-message.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#success-message h1 {
+    font-family: 'Pacifico', cursive;
+    color: var(--primary-color);
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+#success-message p {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
