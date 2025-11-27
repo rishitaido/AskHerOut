@@ -46,7 +46,7 @@ function moveNoButton() {
 
 // Function to create floating flowers
 function createFlowers() {
-    const flowers = ['🌸', '🌹', '🌺', '🌻', '🌼', '🌷'];
+    const flowers = ['🌺', '🪷'];
     const container = document.body;
 
     for (let i = 0; i < 50; i++) {
@@ -124,7 +124,7 @@ yesBtn.addEventListener('click', () => {
 
     // Update UI to Success State
     // Change image to a happy one
-    mainImage.src = "https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"; // Keep the cute one or change to a hugging one
+    mainImage.src = "https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"; // Change to kissing bear
 
     // Hide buttons and show success message
     // Check if noBtn is in body and hide it too if needed, or just hide the container
